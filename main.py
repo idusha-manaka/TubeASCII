@@ -193,7 +193,7 @@ class YouTubeASCIIPlayer:
 
         self.start_audio()
         self.playing   = True
-        last_tick = time.time()
+        sync_time = time.time()  # Ideal clock to keep sync with audio
 
         status_msg = ""
         status_time = 0
@@ -227,17 +227,34 @@ class YouTubeASCIIPlayer:
 
                 if self.paused:
                     time.sleep(0.05)
+                    sync_time += 0.05  # push clock forward so video doesn't rush after unpause
                     continue
 
-                ret, frame = self.cap.read()
+                # Get frame but don't decode it yet (faster)
+                ret = self.cap.grab()
+                if not ret:
+                    break
+
+                # Calculate when this frame SHOULD be shown
+                frame_duration = frame_delay / self.speed
+                sync_time += frame_duration
+                
+                current_time = time.time()
+
+                # 1. Video is running TOO SLOW: Skip rendering this frame to catch up with audio
+                if current_time > sync_time + frame_duration:
+                    self.current_frame += 1
+                    continue
+
+                # 2. Video is running ON TIME or TOO FAST: decode and render
+                ret, frame = self.cap.retrieve()
                 if not ret:
                     break
 
                 art = self.frame_to_art(frame)
 
-                # Move cursor to top-left instead of clearing screen
-                sys.stdout.write("\033[H")
-                sys.stdout.write(art)
+                # Build the entire frame string first to prevent flickering
+                out_buffer = "\033[H" + art
 
                 # Progress bar
                 if self.total_frames > 0:
@@ -245,19 +262,17 @@ class YouTubeASCIIPlayer:
                     filled = int(50 * pct / 100)
                     bar    = '█' * filled + '░' * (50 - filled)
                     stat   = f" | {status_msg}" if status_msg else ""
-                    # \033[K clears the rest of the line
-                    sys.stdout.write(
-                        f"\n\033[K{Fore.CYAN}[{bar}] {pct:.1f}%  {self.speed}x{stat}{Style.RESET_ALL}"
-                    )
+                    out_buffer += f"\n\033[K{Fore.CYAN}[{bar}] {pct:.1f}%  {self.speed}x{stat}{Style.RESET_ALL}"
+                
+                # Write and flush everything atomically
+                sys.stdout.write(out_buffer)
                 sys.stdout.flush()
 
-                # Timing
-                delay   = frame_delay / self.speed
-                elapsed = time.time() - last_tick
-                wait    = delay - elapsed
+                # 3. Video is running TOO FAST: wait for the audio to catch up
+                wait = sync_time - time.time()
                 if wait > 0:
                     time.sleep(wait)
-                last_tick = time.time()
+                    
                 self.current_frame += 1
 
         except KeyboardInterrupt:
