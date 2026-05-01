@@ -88,8 +88,8 @@ When you run the script, it will ask you a few questions to configure your strea
    > `Width chars (default 120): 120`
 
 4. **🎨 Render Mode**: Pick how you want the video to look!
-   > `1` - **Block Mode** (Uses half-blocks `▀` for stunning color accuracy)
-   > `2` - **ASCII Detailed** (Uses a wide range of characters for a classic retro feel)
+   > `1` - **Block Mode** (Uses half-blocks `▀` for stunning color accuracy)<br>
+   > `2` - **ASCII Detailed** (Uses a wide range of characters for a classic retro feel)<br>
    > `3` - **ASCII Simple** (Basic ASCII characters)
 
 ### ⌨️ Keyboard Controls
