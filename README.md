@@ -74,7 +74,23 @@ Launch the player by running:
 python main.py
 ```
 
-Follow the interactive prompts to paste your YouTube URL, select quality, width, and rendering mode!
+### 🪄 Step-by-Step Interactive Setup
+
+When you run the script, it will ask you a few questions to configure your stream:
+
+1. **🔗 YouTube URL**: Paste the link of the video you want to watch.
+   > `YouTube URL: https://youtu.be/...`
+
+2. **📺 Video Quality**: Choose your preferred resolution. Lower resolutions (like `360p`) perform best and look great in the terminal.
+   > `Quality (default 360p): 144p | 240p | 360p | 480p | 720p`
+
+3. **📏 Terminal Width**: Set the width of the video in characters. Higher numbers give more detail but require a wider terminal window.
+   > `Width chars (default 120): 120`
+
+4. **🎨 Render Mode**: Pick how you want the video to look!
+   > `1` - **Block Mode** (Uses half-blocks `▀` for stunning color accuracy)
+   > `2` - **ASCII Detailed** (Uses a wide range of characters for a classic retro feel)
+   > `3` - **ASCII Simple** (Basic ASCII characters)
 
 ### ⌨️ Keyboard Controls
 
