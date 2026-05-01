@@ -49,7 +49,7 @@ Get up and running in less than 2 minutes.
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/TubeASCII.git
+git clone https://github.com/idusha-manaka/TubeASCII.git
 cd TubeASCII
 ```
 
@@ -59,7 +59,7 @@ pip install -r requirements.txt
 ```
 
 ### 3. Setup FFmpeg (Windows Users)
-- Download the **FFmpeg essentials build** from [gyan.dev](https://www.gyan.dev/ffmpeg/builds/).
+- Download the **FFmpeg build** from [this direct link](https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip).
 - Extract the zip file.
 - Copy `ffmpeg.exe` and `ffplay.exe` from the `bin` folder and paste them directly into the `TubeASCII` folder.
 *(Alternatively, add FFmpeg to your system PATH).*
@@ -91,12 +91,12 @@ Follow the interactive prompts to paste your YouTube URL, select quality, width,
 
 ```text
 TubeASCII/
-├── main.py                  # Main engine and playback logic
-├── requirements.txt         # Required Python packages
-├── README.md                # You are here
-├── .gitignore               # Git exclusions
-├── ffmpeg.exe               # ⚠️ DO NOT UPLOAD TO GITHUB
-└── ffplay.exe               # ⚠️ DO NOT UPLOAD TO GITHUB
+├── main.py                  
+├── requirements.txt         
+├── README.md                
+├── .gitignore               
+├── ffmpeg.exe               
+└── ffplay.exe               
 ```
 
 ---
@@ -104,7 +104,7 @@ TubeASCII/
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
-Feel free to check out the [issues page](https://github.com/YOUR_USERNAME/TubeASCII/issues).
+Feel free to check out the [issues page](https://github.com/idusha-manaka/TubeASCII/issues).
 
 ---
 
@@ -115,5 +115,5 @@ This project is open-source and available under the [MIT License](LICENSE).
 ---
 
 <p align="center">
-  Developed with ❤️ by <a href="https://github.com/YOUR_USERNAME">Idusha Manaka</a>
+  Developed with ❤️ by <a href="https://github.com/idusha-manaka">Idusha Manaka</a>
 </p>
