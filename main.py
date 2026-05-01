@@ -37,7 +37,8 @@ YDLP_OPTS_BASE = {
 class YouTubeASCIIPlayer:
     def __init__(self, url, width=120, quality='360p', render_mode='block'):
         self.url = url
-        self.width = width
+        # limit width between 20 and 800 to prevent memory crashes
+        self.width = max(20, min(800, int(width)))
         self.quality = quality
         self.render_mode = render_mode   # 'block' | 'ascii' | 'ascii_detailed'
 
