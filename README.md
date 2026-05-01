@@ -109,8 +109,7 @@ When you run the script, it will ask you a few questions to configure your strea
 TubeASCII/
 ├── main.py                  
 ├── requirements.txt         
-├── README.md                
-├── .gitignore               
+├── README.md                               
 ├── ffmpeg.exe               
 └── ffplay.exe               
 ```
