@@ -18,8 +18,6 @@
 
 Tired of leaving your terminal to watch a quick YouTube tutorial? Want to experience videos in a retro, cyberpunk, or highly-accurate color-block format? **TubeASCII** brings the video to you—streaming straight from YouTube to your command line without needing to download massive files first.
 
-![Demo Placeholder](https://via.placeholder.com/800x400.png?text=Add+Your+Demo+GIF+Here!)
-*(Tip: Record a short GIF of your player running and replace this image link!)*
 
 ---
 
