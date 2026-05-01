@@ -108,11 +108,7 @@ Feel free to check out the [issues page](https://github.com/idusha-manaka/TubeAS
 
 ---
 
-## 📜 License
 
-This project is open-source and available under the [MIT License](LICENSE).
-
----
 
 <p align="center">
   Developed with ❤️ by <a href="https://github.com/idusha-manaka">Idusha Manaka</a>
