@@ -1,26 +1,27 @@
-<div align="center">
-
 # 🎬 TUBE-ASCII PLAYER
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=28&pause=1000&color=00F2FF&center=true&vCenter=true&width=700&lines=NEXT-GEN+TERMINAL+STREAMING;ZERO+DOWNLOAD+PLAYBACK;ULTRA-ACCURATE+BLOCK+MODE;CYBERPUNK+ASCII+EXPERIENCE" alt="Typing SVG" />
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=28&pause=1000&color=00F2FF&center=true&vCenter=true&width=700&lines=NEXT-GEN+TERMINAL+STREAMING;ZERO+DOWNLOAD+PLAYBACK;ULTRA-ACCURATE+BLOCK+MODE;CYBERPUNK+ASCII+EXPERIENCE" alt="Typing SVG" />
+</p>
 
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Stars](https://img.shields.io/github/stars/idusha-manaka/TubeASCII?style=for-the-badge&color=gold&logo=github)](https://github.com/idusha-manaka/TubeASCII/stargazers)
-[![Views](https://komarev.com/ghpvc/?username=idusha-manaka-tubeascii&color=blueviolet&style=for-the-badge&label=PROJECT+VIEWS)](https://github.com/idusha-manaka/TubeASCII)
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" />
+  <img src="https://img.shields.io/github/stars/idusha-manaka/TubeASCII?style=for-the-badge&color=gold&logo=github" />
+  <img src="https://komarev.com/ghpvc/?username=idusha-manaka-tubeascii&color=blueviolet&style=for-the-badge&label=PROJECT+VIEWS" />
+</p>
 
 ---
 
 ### 🌐 **Stream Anything. Anywhere. In ASCII.**
 *Breaking the boundaries between the command line and high-definition video.*
 
-[✨ Features](#-key-features) • [🚀 Setup](#-quick-setup) • [🎮 Controls](#-battle-stations) • [🛠️ Architecture](#-how-it-works)
-
-</div>
+**[✨ Features](#-key-features)** • **[🚀 Setup](#-quick-setup)** • **[🎮 Controls](#-battle-stations)** • **[🛠️ Architecture](#-how-it-works)**
 
 ---
 
 ## ⚡ Visual Pipeline
+
 ```mermaid
 graph LR
     A[YouTube URL] --> B[yt-dlp Engine]
@@ -38,14 +39,10 @@ graph LR
 
 ## 💎 Key Features
 
-<div align="center">
-
 | 🎨 **Rendering Engine** | 🚀 **Performance** | 🔊 **Audio & Sync** |
 | :--- | :--- | :--- |
-| **Block Mode (`▀`)**<br>Ultra-accurate color reproduction using Unicode magic. | **Real-time Streaming**<br>Powered by `yt-dlp` for lag-free direct playback. | **Surround Feel**<br>Synced background audio via `ffplay` integration. |
+| **Block Mode (`▀`)**<br>Ultra-accurate color reproduction using Unicode half-blocks. | **Real-time Streaming**<br>Powered by `yt-dlp` for lag-free direct playback. | **Surround Feel**<br>Synced background audio via `ffplay` integration. |
 | **ASCII Detailed**<br>High-density character mapping for retro vibes. | **Dynamic Scaling**<br>Intelligent frame resizing to fit any terminal width. | **Manual Offset**<br>Fine-tune audio/video sync on the fly with `[` and `]`. |
-
-</div>
 
 ---
 
@@ -57,7 +54,7 @@ graph LR
 git clone https://github.com/idusha-manaka/TubeASCII.git
 cd TubeASCII
 
-# Install the power-ups
+# Install dependencies
 pip install -r requirements.txt
 ```
 
@@ -83,7 +80,7 @@ python main.py
 
 ---
 
-## 🛠️ The Tech Behind the Magic
+## 🛠️ Tech Stack
 
 <p align="center">
   <img src="https://img.shields.io/badge/yt--dlp-FFD117?style=for-the-badge&logo=youtube&logoColor=black" />
@@ -96,9 +93,11 @@ python main.py
 
 ## 📈 Project Status
 
-![GitHub activity](https://img.shields.io/github/commit-activity/m/idusha-manaka/TubeASCII?style=for-the-badge&color=blue)
-![GitHub last commit](https://img.shields.io/github/last-commit/idusha-manaka/TubeASCII?style=for-the-badge&color=orange)
-![GitHub issues](https://img.shields.io/github/issues/idusha-manaka/TubeASCII?style=for-the-badge&color=red)
+<p align="center">
+  <img src="https://img.shields.io/github/commit-activity/m/idusha-manaka/TubeASCII?style=flat-square&color=blue" />
+  <img src="https://img.shields.io/github/last-commit/idusha-manaka/TubeASCII?style=flat-square&color=orange" />
+  <img src="https://img.shields.io/github/issues/idusha-manaka/TubeASCII?style=flat-square&color=red" />
+</p>
 
 ---
 
@@ -107,11 +106,9 @@ python main.py
 ### 🌟 Show Your Support
 Give this project a star if it made your terminal feel like a cyberpunk workspace!
 
-<a href="https://github.com/idusha-manaka/TubeASCII/stargazers">
-  <img src="https://img.shields.io/github/stars/idusha-manaka/TubeASCII?style=for-the-badge&color=FFD700&label=I%20LOVE%20THIS" alt="Stars" />
-</a>
+[![I LOVE THIS](https://img.shields.io/github/stars/idusha-manaka/TubeASCII?style=for-the-badge&color=FFD700&label=STARS)](https://github.com/idusha-manaka/TubeASCII/stargazers)
 
-<br><br>
+<br>
 
 **Crafted with 💖 by [Idusha Manaka](https://github.com/idusha-manaka)**
 
