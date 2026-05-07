@@ -1,103 +1,96 @@
-<h1 align="center">
-  🎬 TubeASCII Player
-</h1>
+<div align="center">
+
+# 🎬 TubeASCII Player
+### *Experience YouTube in its Purest Terminal Form*
+
+[![Python Version](https://img.shields.io/badge/Python-3.8%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-0078D4?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/idusha-manaka/TubeASCII)
+[![License](https://img.shields.io/badge/License-MIT-4CAF50?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Stars](https://img.shields.io/github/stars/idusha-manaka/TubeASCII?style=for-the-badge&color=gold)](https://github.com/idusha-manaka/TubeASCII/stargazers)
+
+---
 
 <p align="center">
-  <strong>Stream YouTube videos directly in your Terminal with stunning ASCII and Block-Color art!</strong>
+  <b>Zero-download streaming. Mind-blowing terminal color accuracy. Retro-cool aesthetics.</b>
+  <br />
+  <i>Watch your favorite YouTube videos directly in your command line with zero friction.</i>
 </p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.8%2B-blueviolet?style=for-the-badge&logo=python" alt="Python Version" />
-  <img src="https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-informational?style=for-the-badge&logo=terminal" alt="Platform" />
-  <img src="https://img.shields.io/badge/License-MIT-success?style=for-the-badge" alt="License" />
-</p>
+[✨ Features](#-features) • [🚀 Quick Start](#-quick-start) • [🎮 Controls](#-controls) • [🤝 Contributing](#-contributing)
 
-<hr>
+</div>
 
 ## 🌟 Why TubeASCII?
 
-Tired of leaving your terminal to watch a quick YouTube tutorial? Want to experience videos in a retro, cyberpunk, or highly-accurate color-block format? **TubeASCII** brings the video to you—streaming straight from YouTube to your command line without needing to download massive files first.
+Tired of leaving your focus-driven terminal environment just to watch a quick tutorial or enjoy some music? **TubeASCII** brings the video to you. Powered by `yt-dlp` and `OpenCV`, it streams content directly into your terminal without needing to download huge files first.
 
+> [!TIP]
+> **Block Mode** uses dual-pixel half-blocks (`▀`) to achieve near-HD color representation in a standard terminal. It's not just ASCII—it's art.
 
 ---
 
 ## ✨ Features
 
-- 🚀 **Zero-Download Streaming**: Powered by `yt-dlp` and `OpenCV`, stream directly into the terminal.
-- 🎨 **High-Color Block Mode (`▀`)**: Uses dual-pixel half-blocks for mind-blowing terminal color accuracy.
-- 🔤 **Classic ASCII Modes**: Choose between Detailed (retro style) or Simple ASCII renders.
-- 🔊 **Synchronized Audio**: Seamlessly plays audio in the background using `ffplay`.
-- ⚡ **Dynamic Playback Control**: Pause, resume, and adjust playback speed (0.25x to 3.0x) on the fly.
-- ⚙️ **Fully Customizable**: Adjust terminal width and pick your preferred video quality (`144p` to `720p`).
+- 🚀 **On-the-Fly Streaming**: No waiting for downloads. Just paste the URL and play.
+- 🎨 **Revolutionary Block Mode**: High-fidelity color accuracy using Unicode half-blocks.
+- 🔤 **Retro ASCII Renders**: Detailed and Simple modes for that classic 90s hacker feel.
+- 🔊 **Synced Audio**: Background audio processing via `ffplay` for a complete experience.
+- ⚡ **Dynamic Playback**: Real-time speed adjustment (0.25x to 3.0x) and pause/resume.
+- ⚙️ **Fully Interactive**: Simple CLI prompts to customize your viewing experience.
 
 ---
 
-## 🛠️ Prerequisites
+## 🚀 Quick Start
 
-To run TubeASCII, you'll need the following installed on your system:
+### 1️⃣ Prerequisites
+Ensure you have **Python 3.8+** installed. You also need **FFmpeg** for audio.
 
-1. **[Python 3.8+](https://www.python.org/downloads/)**
-2. **FFmpeg Essentials** (Required for audio processing and video decoding)
-
----
-
-## 🚀 Installation & Setup
-
-Get up and running in less than 2 minutes.
-
-### 1. Clone the Repository
+### 2️⃣ Installation
 ```bash
+# Clone the magic
 git clone https://github.com/idusha-manaka/TubeASCII.git
 cd TubeASCII
-```
 
-### 2. Install Python Dependencies
-```bash
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-### 3. Setup FFmpeg (Windows Users)
-- Download the **FFmpeg build** from [this direct link](https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip).
-- Extract the zip file.
-- Copy `ffmpeg.exe` and `ffplay.exe` from the `bin` folder and paste them directly into the `TubeASCII` folder.
-*(Alternatively, add FFmpeg to your system PATH).*
+### 3️⃣ FFmpeg Setup (Important)
+1. Download **FFmpeg** from [here](https://github.com/BtbN/FFmpeg-Builds/releases).
+2. Extract and place `ffmpeg.exe` and `ffplay.exe` into the project root.
+   *Or just add them to your system PATH.*
 
----
-
-## 🎮 Usage
-
-Launch the player by running:
-
+### 4️⃣ Run the Player
 ```bash
 python main.py
 ```
 
-### 🪄 Step-by-Step Interactive Setup
+---
 
-When you run the script, it will ask you a few questions to configure your stream:
+## 🎮 Interactive Controls
 
-1. **🔗 YouTube URL**: Paste the link of the video you want to watch.
-   > `YouTube URL: https://youtu.be/...`
-
-2. **📺 Video Quality**: Choose your preferred resolution. Lower resolutions (like `360p`) perform best and look great in the terminal.
-   > `Quality (default 360p): 144p | 240p | 360p | 480p | 720p`
-
-3. **📏 Terminal Width**: Set the width of the video in characters. Higher numbers give more detail but require a wider terminal window.
-   > `Width chars (default 120): 120`
-
-4. **🎨 Render Mode**: Pick how you want the video to look!
-   > `1` - **Block Mode** (Uses half-blocks `▀` for stunning color accuracy)<br>
-   > `2` - **ASCII Detailed** (Uses a wide range of characters for a classic retro feel)<br>
-   > `3` - **ASCII Simple** (Basic ASCII characters)
-
-### ⌨️ Keyboard Controls
+While the video is playing, use these hotkeys to control your experience:
 
 | Key | Action |
 | :---: | :--- |
-| `SPACE` | Pause / Play toggle |
-| `→` | Increase playback speed (+0.25x) |
-| `←` | Decrease playback speed (-0.25x) |
-| `Q` | Quit the player |
+| <kbd>SPACE</kbd> | ⏯️ **Pause / Play** toggle |
+| <kbd>→</kbd> | ⏩ **Faster** (+0.25x) |
+| <kbd>←</kbd> | ⏪ **Slower** (-0.25x) |
+| <kbd>[</kbd> / <kbd>]</kbd> | ⏲️ **Adjust Audio Sync** (±0.1s) |
+| <kbd>Q</kbd> | 🚪 **Quit** the player |
+
+---
+
+## 🛠️ Configuration Details
+
+When launching, you'll be guided through a 4-step setup:
+1. **URL**: Paste any YouTube link.
+2. **Quality**: Pick resolution (`144p` to `1080p`). *Note: 360p is the sweet spot!*
+3. **Width**: Character width (Try `150` for standard, `250` for large screens).
+4. **Mode**: 
+   - `1` - **Block Mode** (Best for movies/music videos)
+   - `2` - **ASCII Detailed** (Best for retro vibes)
+   - `3` - **ASCII Simple** (Classic terminal look)
 
 ---
 
@@ -105,24 +98,32 @@ When you run the script, it will ask you a few questions to configure your strea
 
 ```text
 TubeASCII/
-├── main.py                  
-├── requirements.txt         
-├── README.md                               
-├── ffmpeg.exe               
-└── ffplay.exe               
+├── main.py             # The Engine
+├── requirements.txt    # Power sources
+├── ffmpeg.exe          # Audio Processor
+├── ffplay.exe          # Audio Player
+└── README.md           # You are here
 ```
 
 ---
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome!
-Feel free to check out the [issues page](https://github.com/idusha-manaka/TubeASCII/issues).
+We love contributions! Whether it's fixing a bug, adding a feature, or improving the documentation:
+1. Fork the repo.
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push to the branch (`git push origin feature/AmazingFeature`).
+5. Open a Pull Request.
 
 ---
 
+<div align="center">
 
+### Show some ❤️ by starring this repository!
 
-<p align="center">
-  Developed with ❤️ by <a href="https://github.com/idusha-manaka">Idusha Manaka</a>
-</p>
+Developed with 💻 and ☕ by [Idusha Manaka](https://github.com/idusha-manaka)
+
+[![Follow](https://img.shields.io/github/followers/idusha-manaka?label=Follow&style=social)](https://github.com/idusha-manaka)
+
+</div>
