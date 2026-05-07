@@ -1,129 +1,135 @@
 <div align="center">
 
 # 🎬 TubeASCII Player
-### *Experience YouTube in its Purest Terminal Form*
+
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=24&pause=1000&color=36BCF7&center=true&vCenter=true&width=600&lines=Experience+YouTube+in+Terminal!;Mind-blowing+Color+Accuracy!;Zero-Download+Streaming!;Retro+Cyberpunk+Aesthetics!" alt="Typing SVG" />
 
 [![Python Version](https://img.shields.io/badge/Python-3.8%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-0078D4?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/idusha-manaka/TubeASCII)
 [![License](https://img.shields.io/badge/License-MIT-4CAF50?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Stars](https://img.shields.io/github/stars/idusha-manaka/TubeASCII?style=for-the-badge&color=gold)](https://github.com/idusha-manaka/TubeASCII/stargazers)
+[![Repo Size](https://img.shields.io/github/repo-size/idusha-manaka/TubeASCII?style=for-the-badge&color=8A2BE2)](https://github.com/idusha-manaka/TubeASCII)
 
 ---
 
-<p align="center">
-  <b>Zero-download streaming. Mind-blowing terminal color accuracy. Retro-cool aesthetics.</b>
-  <br />
-  <i>Watch your favorite YouTube videos directly in your command line with zero friction.</i>
-</p>
+### 🚀 **Revolutionizing Terminal Entertainment**
+*Zero-download streaming. High-fidelity colors. Pure terminal magic.*
 
 [✨ Features](#-features) • [🚀 Quick Start](#-quick-start) • [🎮 Controls](#-controls) • [🤝 Contributing](#-contributing)
 
 </div>
 
-## 🌟 Why TubeASCII?
+---
 
-Tired of leaving your focus-driven terminal environment just to watch a quick tutorial or enjoy some music? **TubeASCII** brings the video to you. Powered by `yt-dlp` and `OpenCV`, it streams content directly into your terminal without needing to download huge files first.
+## 📺 Preview: Block Mode (`▀`)
+> [!IMPORTANT]
+> This isn't your average ASCII art. Our **Block Mode** uses Unicode half-blocks to deliver **real-time color video** with incredible accuracy directly in your command line.
 
-> [!TIP]
-> **Block Mode** uses dual-pixel half-blocks (`▀`) to achieve near-HD color representation in a standard terminal. It's not just ASCII—it's art.
+```text
+  ██████████████████████████████████████████████████
+  ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░██
+  ██░░  ► PLAYING: YouTube Stream in Terminal   ░░██
+  ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░██
+  ██████████████████████████████████████████████████
+```
 
 ---
 
-## ✨ Features
+## ✨ Key Features
 
-- 🚀 **On-the-Fly Streaming**: No waiting for downloads. Just paste the URL and play.
-- 🎨 **Revolutionary Block Mode**: High-fidelity color accuracy using Unicode half-blocks.
-- 🔤 **Retro ASCII Renders**: Detailed and Simple modes for that classic 90s hacker feel.
-- 🔊 **Synced Audio**: Background audio processing via `ffplay` for a complete experience.
-- ⚡ **Dynamic Playback**: Real-time speed adjustment (0.25x to 3.0x) and pause/resume.
-- ⚙️ **Fully Interactive**: Simple CLI prompts to customize your viewing experience.
+<table align="center">
+  <tr>
+    <td width="50%" valign="top">
+      <h4>🎨 Stunning Visuals</h4>
+      <ul>
+        <li><b>Block Mode:</b> Dual-pixel half-block rendering for vivid colors.</li>
+        <li><b>ASCII Detailed:</b> Classic high-res character art.</li>
+        <li><b>ASCII Simple:</b> Lightweight retro terminal look.</li>
+      </ul>
+    </td>
+    <td width="50%" valign="top">
+      <h4>⚡ High Performance</h4>
+      <ul>
+        <li><b>Direct Streaming:</b> No local files needed.</li>
+        <li><b>Sync Audio:</b> Powered by FFmpeg for perfect timing.</li>
+        <li><b>Speed Control:</b> On-the-fly 0.25x to 3.0x scaling.</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Getting Started
 
-### 1️⃣ Prerequisites
-Ensure you have **Python 3.8+** installed. You also need **FFmpeg** for audio.
-
-### 2️⃣ Installation
+### 1️⃣ Installation
 ```bash
-# Clone the magic
+# Clone the universe
 git clone https://github.com/idusha-manaka/TubeASCII.git
 cd TubeASCII
 
-# Install dependencies
+# Power up with dependencies
 pip install -r requirements.txt
 ```
 
-### 3️⃣ FFmpeg Setup (Important)
-1. Download **FFmpeg** from [here](https://github.com/BtbN/FFmpeg-Builds/releases).
-2. Extract and place `ffmpeg.exe` and `ffplay.exe` into the project root.
-   *Or just add them to your system PATH.*
+### 2️⃣ FFmpeg Setup
+TubeASCII needs a pilot for the audio. Download **FFmpeg** and drop `ffmpeg.exe` and `ffplay.exe` into the folder. 
 
-### 4️⃣ Run the Player
+> [!TIP]
+> You can also just add FFmpeg to your system Environment Variables (PATH) so it's available globally!
+
+### 3️⃣ Launch the Experience
 ```bash
 python main.py
 ```
 
 ---
 
-## 🎮 Interactive Controls
+## 🎮 Battle Stations: Controls
 
-While the video is playing, use these hotkeys to control your experience:
-
-| Key | Action |
-| :---: | :--- |
-| <kbd>SPACE</kbd> | ⏯️ **Pause / Play** toggle |
-| <kbd>→</kbd> | ⏩ **Faster** (+0.25x) |
-| <kbd>←</kbd> | ⏪ **Slower** (-0.25x) |
-| <kbd>[</kbd> / <kbd>]</kbd> | ⏲️ **Adjust Audio Sync** (±0.1s) |
-| <kbd>Q</kbd> | 🚪 **Quit** the player |
-
----
-
-## 🛠️ Configuration Details
-
-When launching, you'll be guided through a 4-step setup:
-1. **URL**: Paste any YouTube link.
-2. **Quality**: Pick resolution (`144p` to `1080p`). *Note: 360p is the sweet spot!*
-3. **Width**: Character width (Try `150` for standard, `250` for large screens).
-4. **Mode**: 
-   - `1` - **Block Mode** (Best for movies/music videos)
-   - `2` - **ASCII Detailed** (Best for retro vibes)
-   - `3` - **ASCII Simple** (Classic terminal look)
+| Command | Key | Action |
+| :--- | :---: | :--- |
+| **Play/Pause** | <kbd>Space</kbd> | Toggle the stream |
+| **Fast Forward** | <kbd>→</kbd> | Increase speed by 0.25x |
+| **Slow Down** | <kbd>←</kbd> | Decrease speed by 0.25x |
+| **Sync +** | <kbd>]</kbd> | Delay audio by 0.1s |
+| **Sync -** | <kbd>[</kbd> | Advance audio by 0.1s |
+| **Exit** | <kbd>Q</kbd> | Close the player safely |
 
 ---
 
-## 📁 Project Structure
+## 🛠️ Tech Stack
+- **Engine:** [Python 3.8+](https://python.org)
+- **Video Processing:** [OpenCV](https://opencv.org)
+- **Streaming:** [yt-dlp](https://github.com/yt-dlp/yt-dlp)
+- **Audio/Sync:** [FFmpeg](https://ffmpeg.org)
+- **UI Styling:** [Colorama](https://github.com/tartley/colorama)
 
-```text
+---
+
+## 📁 Repository Map
+```bash
 TubeASCII/
-├── main.py             # The Engine
-├── requirements.txt    # Power sources
-├── ffmpeg.exe          # Audio Processor
-├── ffplay.exe          # Audio Player
-└── README.md           # You are here
+├── main.py             # Main Logic & Rendering
+├── requirements.txt    # Library manifests
+├── ffmpeg.exe          # Audio bridge
+└── README.md           # The manual
 ```
-
----
-
-## 🤝 Contributing
-
-We love contributions! Whether it's fixing a bug, adding a feature, or improving the documentation:
-1. Fork the repo.
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
-4. Push to the branch (`git push origin feature/AmazingFeature`).
-5. Open a Pull Request.
 
 ---
 
 <div align="center">
 
-### Show some ❤️ by starring this repository!
+### ❤️ Support the Project
+If this project made your terminal cooler, give it a ⭐ on GitHub!
 
-Developed with 💻 and ☕ by [Idusha Manaka](https://github.com/idusha-manaka)
+<a href="https://github.com/idusha-manaka/TubeASCII/stargazers">
+  <img src="https://img.shields.io/github/stars/idusha-manaka/TubeASCII?style=for-the-badge&color=gold&logo=github" alt="Stars" />
+</a>
 
-[![Follow](https://img.shields.io/github/followers/idusha-manaka?label=Follow&style=social)](https://github.com/idusha-manaka)
+<br />
+
+**Developed with Passion by [Idusha Manaka](https://github.com/idusha-manaka)**
+
+[![GitHub Followers](https://img.shields.io/github/followers/idusha-manaka?label=Follow%20Me&style=social)](https://github.com/idusha-manaka)
 
 </div>
