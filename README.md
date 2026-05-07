@@ -1,157 +1,141 @@
-# 🎬 TUBE-ASCII PLAYER
-<p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&weight=700&size=35&pause=1000&color=00F2FF&center=true&vCenter=true&width=800&lines=NEXT-GEN+TERMINAL+STREAMING;ULTRA-ACCURATE+BLOCK+MODE;ZERO-LATENCY+PLAYBACK;THE+FUTURE+OF+CLI+MEDIA" alt="Typing SVG" />
-</p>
+<div align="center">
+
+# 🎬 TUBE-ASCII
+### *The Ultimate Command-Line YouTube Experience*
 
 <p align="center">
-  <a href="https://github.com/idusha-manaka/TubeASCII/stargazers"><img src="https://img.shields.io/github/stars/idusha-manaka/TubeASCII?style=for-the-badge&color=00F2FF&logo=github&logoColor=black" /></a>
-  <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.8%2B-00F2FF?style=for-the-badge&logo=python&logoColor=black" /></a>
-  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-00F2FF?style=for-the-badge" /></a>
-  <img src="https://komarev.com/ghpvc/?username=idusha-manaka-tubeascii&color=00F2FF&style=for-the-badge&label=VIEWS" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=700&size=24&pause=1000&color=36BCF7&center=true&vCenter=true&width=600&lines=Zero-Download+Streaming;Mind-blowing+Color+Accuracy;Retro+Cyberpunk+Aesthetics;High-Performance+Engine" alt="Typing SVG" />
 </p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Windows-Supported-00F2FF?style=flat-square&logo=windows&logoColor=black" />
-  <img src="https://img.shields.io/badge/Linux-Supported-00F2FF?style=flat-square&logo=linux&logoColor=black" />
-  <img src="https://img.shields.io/badge/Stability-Production-00F2FF?style=flat-square" />
-</p>
+[![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![License](https://img.shields.io/badge/License-MIT-4CAF50?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Stars](https://img.shields.io/github/stars/idusha-manaka/TubeASCII?style=for-the-badge&color=gold&logo=github)](https://github.com/idusha-manaka/TubeASCII/stargazers)
+[![Views](https://komarev.com/ghpvc/?username=idusha-manaka-tubeascii&color=blueviolet&style=for-the-badge&label=VIEWS)](https://github.com/idusha-manaka/TubeASCII)
 
 ---
 
-<p align="center">
-  <b>Transform your command line into a high-fidelity cinematic experience.</b><br>
-  <i>TubeASCII leverages advanced half-block rendering to deliver real-time, low-latency YouTube streaming directly to your terminal buffer.</i>
-</p>
+### **🚀 Transform your terminal into a cinematic powerhouse.**
+*TubeASCII uses advanced rendering logic to stream high-definition video directly to your console.*
 
-<p align="center">
-  <a href="#-core-features"><b>Features</b></a> • 
-  <a href="#-deployment-guide"><b>Deployment</b></a> • 
-  <a href="#-terminal-controls"><b>Controls</b></a> • 
-  <a href="#-engine-architecture"><b>Architecture</b></a>
-</p>
+[✨ Features](#-key-features) • [🚀 Setup](#-installation) • [🎮 Controls](#-controls) • [🛠️ Architecture](#-system-architecture)
+
+</div>
 
 ---
 
-## ⚡ Engine Architecture
+## ⚡ System Architecture
 
 ```mermaid
 graph TD
-    subgraph "Ingestion Layer"
-        URL([YouTube URL]) --> YTDL[yt-dlp Extractor]
-    end
-    
-    subgraph "Processing Pipeline"
-        YTDL -->|Video Stream| CV2[OpenCV Decoder]
-        YTDL -->|Audio Stream| FF[FFmpeg Engine]
-        CV2 -->|Raw Frames| RNDR{Render Engine}
-    end
-    
-    subgraph "Output Surface"
-        RNDR -->|High Fidelity| BLK[Block Mode ▀]
-        RNDR -->|Retro| ASC[ASCII Mode]
-        BLK --> TERM[Terminal Screen]
-        ASC --> TERM
-        FF -->|Sync Audio| TERM
-    end
-    
-    style URL fill:#00F2FF,stroke:#000,stroke-width:2px,color:#000
-    style TERM fill:#000,stroke:#00F2FF,stroke-width:3px,color:#00F2FF
-    style RNDR fill:#FFD700,stroke:#000,stroke-width:2px
-    style YTDL fill:#333,color:#fff
-    style FF fill:#333,color:#fff
+    %% Node Definitions
+    URL([🔗 YouTube URL])
+    YTDL[📦 yt-dlp Engine]
+    CV2[🖼️ OpenCV Decoder]
+    FF[🔊 FFmpeg Engine]
+    RNDR{🎨 Render Mode}
+    BLK[▀ Block Mode]
+    ASC[🔡 ASCII Mode]
+    TERM[🖥️ Terminal Screen]
+
+    %% Connections
+    URL --> YTDL
+    YTDL -->|Video| CV2
+    YTDL -->|Audio| FF
+    CV2 --> RNDR
+    RNDR -->|High Res| BLK
+    RNDR -->|Classic| ASC
+    BLK --> TERM
+    ASC --> TERM
+    FF -->|Synced| TERM
+
+    %% Styling
+    style URL fill:#E1F5FE,stroke:#01579B,stroke-width:2px
+    style YTDL fill:#ECEFF1,stroke:#455A64
+    style CV2 fill:#E8EAF6,stroke:#3F51B5
+    style FF fill:#F1F8E9,stroke:#558B2F
+    style RNDR fill:#FFF9C4,stroke:#FBC02D
+    style TERM fill:#263238,stroke:#00BCD4,stroke-width:3px,color:#fff
+    style BLK fill:#E0F7FA,stroke:#006064
+    style ASC fill:#F5F5F5,stroke:#212121
 ```
 
 ---
 
-## 💎 Core Features
+## 💎 Key Features
 
-<table align="center">
-  <tr>
-    <td width="33%" align="center">
-      <b>🎨 Chroma Engine</b><br>
-      High-accuracy 24-bit TrueColor mapping using dual-pixel half-blocks.
-    </td>
-    <td width="33%" align="center">
-      <b>🚀 Direct Buffer</b><br>
-      Real-time streaming without disk writes, ensuring zero storage footprint.
-    </td>
-    <td width="33%" align="center">
-      <b>🔊 Sonic Sync</b><br>
-      Automated A/V alignment with sub-millisecond precision controls.
-    </td>
-  </tr>
-</table>
+- 🎨 **Block Mode (`▀`)**: Utilizes half-blocks to achieve double the vertical resolution and incredible color accuracy.
+- 🚀 **Stream Direct**: No disk space? No problem. Stream directly from YouTube servers to your terminal.
+- 🔊 **Sonic Sync**: Perfectly aligned background audio using multi-threaded FFmpeg processing.
+- ⚡ **Turbo Playback**: Adjust playback speed on-the-fly from 0.25x to 3.0x with zero lag.
+- 📐 **Smart Scaling**: Automatically detects and scales video frames to fit your terminal window.
 
 ---
 
-## 🚀 Deployment Guide
+## 🚀 Installation & Usage
 
-### 1️⃣ Environment Initialization
+### 1️⃣ Prepare Your Gear
+Ensure you have **Python 3.8+** and **Pip** installed.
+
+### 2️⃣ Get the Code
 ```bash
-# Clone the repository
 git clone https://github.com/idusha-manaka/TubeASCII.git
 cd TubeASCII
-
-# Install dependencies
 pip install -r requirements.txt
 ```
 
-### 2️⃣ Binary Requirements (FFmpeg)
-TubeASCII requires the FFmpeg binaries for high-performance audio synchronization.
-- **Download**: [FFmpeg Release Builds](https://github.com/BtbN/FFmpeg-Builds/releases)
-- **Installation**: Place `ffmpeg.exe` and `ffplay.exe` in the root directory.
+### 3️⃣ Audio Hardware (FFmpeg)
+Download `ffmpeg.exe` and `ffplay.exe` from [this link](https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials.7z) and place them in the project root folder.
 
-### 3️⃣ Execution
+### 4️⃣ Ignition
 ```bash
 python main.py
 ```
 
 ---
 
-## 🎮 Terminal Controls
+## 🎮 Battle Stations: Controls
 
-| Function | Command | Keyboard |
-| :--- | :--- | :---: |
-| **Playback** | Toggle Play/Pause | <kbd>Space</kbd> |
-| **Speed** | Increase / Decrease | <kbd>→</kbd> <kbd>←</kbd> |
-| **Synchronization** | Fine-tune A/V Delay | <kbd>[</kbd> <kbd>]</kbd> |
-| **Termination** | Exit Player | <kbd>Q</kbd> |
-
----
-
-## 🛠️ Internal Stack
-
-| Module | technology | Implementation |
-| :--- | :--- | :--- |
-| **Data Scraping** | `yt-dlp` | Dynamic stream resolution handling |
-| **Video Decoding** | `OpenCV` | Real-time frame-by-frame interpolation |
-| **Rendering** | `ANSI/VT100` | Custom half-block Unicode virtualization |
-| **Audio Pipeline** | `Subprocess` | Low-latency ffplay background execution |
+| Command | Key | Action |
+| :--- | :---: | :--- |
+| **Play / Pause** | <kbd>Space</kbd> | Toggle video playback |
+| **Increase Speed** | <kbd>→</kbd> | Speed up the stream (+0.25x) |
+| **Decrease Speed** | <kbd>←</kbd> | Slow down the stream (-0.25x) |
+| **Adjust Sync** | <kbd>[</kbd> <kbd>]</kbd> | Manually fix Audio/Video delay |
+| **Abort** | <kbd>Q</kbd> | Quit the player |
 
 ---
 
-## 🛠️ Roadmap & Future Enhancements
-- [x] High-fidelity Block Mode
-- [x] Real-time Speed Control
-- [ ] Direct Playlist Streaming
-- [ ] Terminal Audio Visualization
-- [ ] Cross-platform binary packaging
+## 🛠️ The Tech Arsenal
+
+- **Extraction**: `yt-dlp` (The world's best video downloader/extractor)
+- **Vision**: `OpenCV` (High-performance frame processing)
+- **Rendering**: `Custom Python Engine` (ANSI/VT100 Color virtualization)
+- **Audio**: `FFmpeg Essentials` (The industry standard for media processing)
+
+---
+
+## 📈 Roadmap
+- [x] High-Resolution Block Mode
+- [x] Dynamic Audio Synchronization
+- [ ] Direct YouTube Playlist Support
+- [ ] Cross-Platform Binary Support (.exe / .app)
 
 ---
 
 <div align="center">
 
-### 🌟 Project Status & Activity
-[![Activity](https://img.shields.io/github/commit-activity/m/idusha-manaka/TubeASCII?style=for-the-badge&color=00F2FF)](https://github.com/idusha-manaka/TubeASCII)
-[![Issues](https://img.shields.io/github/issues/idusha-manaka/TubeASCII?style=for-the-badge&color=00F2FF)](https://github.com/idusha-manaka/TubeASCII/issues)
+### 🌟 Legend Status
+If you find this project cool, give it a star! It helps more developers discover the magic.
+
+[![I LOVE THIS](https://img.shields.io/github/stars/idusha-manaka/TubeASCII?style=for-the-badge&color=gold&label=BECOME+A+LEGEND)](https://github.com/idusha-manaka/TubeASCII/stargazers)
 
 <br>
 
-**Developed with Precision by [Idusha Manaka](https://github.com/idusha-manaka)**
+**Crafted with 💖 by [Idusha Manaka](https://github.com/idusha-manaka)**
 
 [![Follow](https://img.shields.io/github/followers/idusha-manaka?label=Developer%20Profile&style=social)](https://github.com/idusha-manaka)
 
 <br>
-<img src="https://capsule-render.vercel.app/api?type=waving&color=00F2FF&height=100&section=footer" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer" width="100%"/>
 
 </div>
