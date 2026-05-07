@@ -26,7 +26,7 @@
 
 <p align="center">
   <a href="#-key-features"><b>Features</b></a> • 
-  <a href="#-quick-setup"><b>Setup</b></a> • 
+  <a href="#-setup--usage-guide"><b>Complete Guide</b></a> • 
   <a href="#-battle-stations"><b>Controls</b></a> • 
   <a href="#-how-it-works"><b>Architecture</b></a>
 </p>
@@ -69,26 +69,42 @@ graph TD
 
 ---
 
-## 🚀 Quick Setup
+## 🚀 Setup & Usage Guide
 
-### 1. Clone & Initialize
+Follow these steps to get your terminal cinema running in minutes!
+
+### 1️⃣ Prerequisites
+Make sure you have [Python 3.8+](https://www.python.org/downloads/) installed on your system.
+
+### 2️⃣ Clone the Repository
 ```bash
 git clone https://github.com/idusha-manaka/TubeASCII.git
 cd TubeASCII
 ```
 
-### 2. Equip Dependencies
+### 3️⃣ Install Python Packages
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. The Core (FFmpeg)
-Download `ffmpeg.exe` and `ffplay.exe` from the [official builds](https://github.com/BtbN/FFmpeg-Builds/releases) and place them in the project folder.
+### 4️⃣ Setup FFmpeg (Essential for Audio)
+Without this, you will have no sound. Follow these specific steps for Windows:
+1. **Download**: Click [here to download FFmpeg Essentials](https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials.7z) (or from [GitHub Releases](https://github.com/BtbN/FFmpeg-Builds/releases)).
+2. **Extract**: Use 7-Zip or WinRAR to extract the downloaded file.
+3. **Copy Files**: Go into the `bin` folder and copy `ffmpeg.exe` and `ffplay.exe`.
+4. **Paste**: Paste both files directly into your `TubeASCII` project folder.
 
-### 4. Ignition
+### 5️⃣ Ignite & Play!
+Run the main script:
 ```bash
 python main.py
 ```
+
+**Inside the player:**
+1.  **Paste URL**: When asked `YouTube URL:`, paste your video link.
+2.  **Select Quality**: Choose `360p` for the best balance of speed and clarity.
+3.  **Choose Mode**: Press `1` for the stunning **Block Mode**.
+4.  **Enjoy**: Your terminal will now start streaming!
 
 ---
 
