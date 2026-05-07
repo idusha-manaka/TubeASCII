@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=TUBE-ASCII&fontSize=80&fontColor=ffffff&animation=fadeIn&fontAlignY=40" width="100%"/>
+
 # 🎬 TUBE-ASCII
 ### *The Ultimate Command-Line YouTube Experience*
 
