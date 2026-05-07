@@ -49,14 +49,14 @@ graph TD
     FF -->|Synced| TERM
 
     %% Styling
-    style URL fill:#E1F5FE,stroke:#01579B,stroke-width:2px
-    style YTDL fill:#ECEFF1,stroke:#455A64
-    style CV2 fill:#E8EAF6,stroke:#3F51B5
-    style FF fill:#F1F8E9,stroke:#558B2F
-    style RNDR fill:#FFF9C4,stroke:#FBC02D
+    style URL fill:#E1F5FE,stroke:#01579B,stroke-width:2px,color:#000
+    style YTDL fill:#ECEFF1,stroke:#455A64,color:#000
+    style CV2 fill:#E8EAF6,stroke:#3F51B5,color:#000
+    style FF fill:#F1F8E9,stroke:#558B2F,color:#000
+    style RNDR fill:#FFF9C4,stroke:#FBC02D,color:#000
     style TERM fill:#263238,stroke:#00BCD4,stroke-width:3px,color:#fff
-    style BLK fill:#E0F7FA,stroke:#006064
-    style ASC fill:#F5F5F5,stroke:#212121
+    style BLK fill:#E0F7FA,stroke:#006064,color:#000
+    style ASC fill:#F5F5F5,stroke:#212121,color:#000
 ```
 
 ---
