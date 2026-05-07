@@ -1,12 +1,12 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:36BCF7,100:00F2FF&height=200&section=header&text=TUBE-ASCII&fontSize=80&fontColor=ffffff&animation=fadeIn&fontAlignY=40" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:ff0080,100:7928ca&height=200&section=header&text=TUBE-ASCII&fontSize=80&fontColor=ffffff&animation=fadeIn&fontAlignY=40" width="100%"/>
 
 # 🎬 TUBE-ASCII
 ### *The Ultimate Command-Line YouTube Experience*
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=700&size=24&pause=1000&color=00F2FF&center=true&vCenter=true&width=600&lines=Zero-Download+Streaming;Mind-blowing+Color+Accuracy;Retro+Cyberpunk+Aesthetics;High-Performance+Engine" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=700&size=24&pause=1000&color=FF0080&center=true&vCenter=true&width=600&lines=Zero-Download+Streaming;Mind-blowing+Color+Accuracy;Retro+Cyberpunk+Aesthetics;High-Performance+Engine" alt="Typing SVG" />
 </p>
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
