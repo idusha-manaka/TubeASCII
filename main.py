@@ -35,12 +35,14 @@ YDLP_OPTS_BASE = {
 
 
 class YouTubeASCIIPlayer:
-    def __init__(self, url, width=120, quality='360p', render_mode='block'):
+    def __init__(self, url, width=120, quality='360p', render_mode='block', start_time=0):
         self.url = url
         # limit width between 20 and 800 to prevent memory crashes
         self.width = max(20, min(800, int(width)))
         self.quality = quality
         self.render_mode = render_mode   # 'block' | 'ascii' | 'ascii_detailed'
+        self.start_time = start_time     # in seconds
+        self.sync_offset = 0             # manual sync adjustment in seconds
 
         self.playing = False
         self.paused  = False
@@ -149,8 +151,9 @@ class YouTubeASCIIPlayer:
             print(f"{Fore.YELLOW}⚠ ffplay not found – no audio{Style.RESET_ALL}")
             return
         try:
+            # -ss seeks to the specified time in seconds
             self.audio_proc = subprocess.Popen(
-                [self.ffplay, '-nodisp', '-autoexit', '-loglevel', 'quiet', self.audio_url],
+                [self.ffplay, '-nodisp', '-autoexit', '-ss', str(self.start_time), '-loglevel', 'quiet', self.audio_url],
                 stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
             )
         except Exception as e:
@@ -167,9 +170,9 @@ class YouTubeASCIIPlayer:
     # display controls
     def show_controls(self):
         print(f"""
-{Fore.YELLOW}{'='*58}
-🎮  SPACE=Pause/Play   →=Faster   ←=Slower   Q=Quit
-{'='*58}{Style.RESET_ALL}""")
+{Fore.YELLOW}{'='*68}
+🎮  SPACE=Pause   →=Faster   ←=Slower   [ / ] = Adjust Sync   Q=Quit
+{'='*68}{Style.RESET_ALL}""")
 
     # main video loop
     def play(self):
@@ -184,6 +187,31 @@ class YouTubeASCIIPlayer:
             print(f"{Fore.RED}✗ Failed to open stream. Try a lower quality.{Style.RESET_ALL}")
             return
 
+        # Seek to start time
+        if self.start_time > 0:
+            print(f"{Fore.CYAN}⏩ Seeking to {self.start_time}s...{Style.RESET_ALL}")
+            self.cap.set(cv2.CAP_PROP_POS_MSEC, self.start_time * 1000)
+            
+            actual_msec = self.cap.get(cv2.CAP_PROP_POS_MSEC)
+            fps = self.cap.get(cv2.CAP_PROP_FPS) or 24
+            
+            # If hardware seek failed or is imprecise, manually skip frames (Fast Skip)
+            if actual_msec < (self.start_time * 1000) - 500:
+                print(f"{Fore.YELLOW}⚠ Hardware seek imprecise. Fast-forwarding frames...{Style.RESET_ALL}")
+                target_msec = self.start_time * 1000
+                while True:
+                    ret = self.cap.grab()
+                    if not ret: break
+                    self.current_frame += 1
+                    actual_msec = self.cap.get(cv2.CAP_PROP_POS_MSEC)
+                    if actual_msec >= target_msec:
+                        break
+                    if self.current_frame % 100 == 0:
+                        print(f"\r  Skipped {self.current_frame} frames ({(actual_msec/1000):.1f}s)...", end="")
+                print(f"\n{Fore.GREEN}✓ Reached start point. ({actual_msec/1000:.1f}s){Style.RESET_ALL}")
+            else:
+                self.current_frame = int((actual_msec / 1000.0) * fps)
+
         fps = self.cap.get(cv2.CAP_PROP_FPS) or 24
         self.total_frames = int(self.cap.get(cv2.CAP_PROP_FRAME_COUNT))
         frame_delay = 1.0 / fps
@@ -191,16 +219,30 @@ class YouTubeASCIIPlayer:
         self.show_controls()
         time.sleep(0.5)
 
+        self.playing = True
+        
+        # 1. Clear screen and hide cursor immediately
+        sys.stdout.write("\033[?25l")
+        os.system('cls' if os.name == 'nt' else 'clear')
+
+        # 2. Render the VERY FIRST frame immediately so the user sees video right away
+        ret, frame = self.cap.read()
+        if ret:
+            art = self.frame_to_art(frame)
+            sys.stdout.write("\033[H" + art)
+            sys.stdout.flush()
+            self.current_frame += 1
+
+        # 3. Now start the audio
         self.start_audio()
-        self.playing   = True
-        sync_time = time.time()  # Ideal clock to keep sync with audio
+        
+        # 4. Set sync clock (delay video by 1.5s to match audio)
+        audio_startup_offset = 1.5 
+        current_pos_in_video = self.cap.get(cv2.CAP_PROP_POS_MSEC) / 1000.0
+        session_start_time = (time.time() + audio_startup_offset) - (current_pos_in_video / self.speed)
 
         status_msg = ""
         status_time = 0
-
-        # Hide cursor and clear screen initially
-        sys.stdout.write("\033[?25l")
-        os.system('cls' if os.name == 'nt' else 'clear')
 
         try:
             while self.playing and self.cap.isOpened():
@@ -221,6 +263,14 @@ class YouTubeASCIIPlayer:
                         self.speed = max(0.25, self.speed - 0.25)
                         status_msg = f"Speed: {self.speed}x"
                         status_time = time.time()
+                    elif key == b'[':
+                        self.sync_offset -= 0.1
+                        status_msg = f"Sync: {self.sync_offset:+.1f}s"
+                        status_time = time.time()
+                    elif key == b']':
+                        self.sync_offset += 0.1
+                        status_msg = f"Sync: {self.sync_offset:+.1f}s"
+                        status_time = time.time()
 
                 if time.time() - status_time > 2 and not self.paused:
                     status_msg = ""
@@ -235,26 +285,28 @@ class YouTubeASCIIPlayer:
                 if not ret:
                     break
 
-                # Calculate when this frame SHOULD be shown
-                frame_duration = frame_delay / self.speed
-                sync_time += frame_duration
+                # Calculate when THIS specific frame should be visible
+                current_pos_in_video = self.cap.get(cv2.CAP_PROP_POS_MSEC) / 1000.0
+                # Add sync_offset to target_wall_time to delay/advance video
+                target_wall_time = session_start_time + (current_pos_in_video / self.speed) + self.sync_offset
                 
                 current_time = time.time()
 
-                # 1. Video is running TOO SLOW: Skip rendering this frame to catch up with audio
-                if current_time > sync_time + frame_duration:
+                # 1. Video is TOO SLOW: Skip rendering this frame
+                if current_time > target_wall_time + (1.0 / fps):
                     self.current_frame += 1
                     continue
 
-                # 2. Video is running ON TIME or TOO FAST: decode and render
+                # 2. Video is ON TIME or TOO FAST: decode and render
                 ret, frame = self.cap.retrieve()
                 if not ret:
                     break
 
                 art = self.frame_to_art(frame)
 
-                # Build the entire frame string first to prevent flickering
-                out_buffer = "\033[H" + art
+                # Move cursor to top-left instead of clearing screen
+                sys.stdout.write("\033[H")
+                sys.stdout.write(art)
 
                 # Progress bar
                 if self.total_frames > 0:
@@ -262,14 +314,13 @@ class YouTubeASCIIPlayer:
                     filled = int(50 * pct / 100)
                     bar    = '█' * filled + '░' * (50 - filled)
                     stat   = f" | {status_msg}" if status_msg else ""
-                    out_buffer += f"\n\033[K{Fore.CYAN}[{bar}] {pct:.1f}%  {self.speed}x{stat}{Style.RESET_ALL}"
-                
-                # Write and flush everything atomically
-                sys.stdout.write(out_buffer)
+                    sys.stdout.write(
+                        f"\n\033[K{Fore.CYAN}[{bar}] {pct:.1f}%  {self.speed}x{stat}{Style.RESET_ALL}"
+                    )
                 sys.stdout.flush()
 
-                # 3. Video is running TOO FAST: wait for the audio to catch up
-                wait = sync_time - time.time()
+                # 3. Video is TOO FAST: wait for the target time
+                wait = target_wall_time - time.time()
                 if wait > 0:
                     time.sleep(wait)
                     
@@ -284,6 +335,49 @@ class YouTubeASCIIPlayer:
                 self.cap.release()
             self.stop_audio()
             print(f"\n{Fore.GREEN}✓ Done{Style.RESET_ALL}")
+
+
+def parse_time(time_str):
+    """
+    Parses time strings into total seconds.
+    Supports:
+    - HH:MM:SS.ms (Standard)
+    - HH.MM.SS.MS (User requested)
+    - SS.ms (Decimal seconds)
+    """
+    if not time_str:
+        return 0
+    
+    # If there are colons, they are the primary separator. Dots are decimals.
+    if ':' in time_str:
+        parts = time_str.split(':')
+    # If there are multiple dots, they are separators (H.M.S.MS)
+    elif time_str.count('.') > 1:
+        parts = time_str.split('.')
+    # If there is 0 or 1 dot, it's just a decimal number of seconds
+    else:
+        try:
+            return float(time_str)
+        except ValueError:
+            return 0
+            
+    # Parse parts into floats
+    try:
+        parts = [float(p) for p in parts if p.strip()]
+    except ValueError:
+        return 0
+        
+    parts.reverse() # [S, M, H, ...]
+    
+    total_seconds = 0
+    if len(parts) >= 1: # seconds (can be decimal)
+        total_seconds += parts[0]
+    if len(parts) >= 2: # minutes
+        total_seconds += parts[1] * 60
+    if len(parts) >= 3: # hours
+        total_seconds += parts[2] * 3600
+        
+    return total_seconds
 
 
 # program execution starts here
@@ -301,6 +395,10 @@ def main():
 
     width = input(f"{Fore.CYAN}Width chars (default 150): {Style.RESET_ALL}").strip() or "150"
 
+    print(f"\n{Fore.YELLOW}Start time (Format: H:M:S:MS or just Seconds){Style.RESET_ALL}")
+    time_input = input(f"{Fore.CYAN}Start at (default 0): {Style.RESET_ALL}").strip() or "0"
+    start_seconds = parse_time(time_input)
+
     print(f"""
 {Fore.YELLOW}Render modes:
   {Fore.GREEN}1{Fore.YELLOW} - Block  (best color – closest to real video)
@@ -313,7 +411,8 @@ def main():
         url,
         width=int(width),
         quality=quality if quality.endswith('p') else quality + 'p',
-        render_mode=modes.get(choice, 'block')
+        render_mode=modes.get(choice, 'block'),
+        start_time=start_seconds
     )
     print(f"\n{Fore.GREEN}💡 Tip: For HD quality, ZOOM OUT your terminal (Ctrl + Mouse Wheel Down) before the video starts!{Style.RESET_ALL}\n")
     time.sleep(1.5)
