@@ -1,67 +1,91 @@
 # 🎬 TUBE-ASCII PLAYER
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=28&pause=1000&color=00F2FF&center=true&vCenter=true&width=700&lines=NEXT-GEN+TERMINAL+STREAMING;ZERO+DOWNLOAD+PLAYBACK;ULTRA-ACCURATE+BLOCK+MODE;CYBERPUNK+ASCII+EXPERIENCE" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&weight=700&size=32&pause=1000&color=00FFD1&center=true&vCenter=true&width=800&lines=WELCOME+TO+THE+FUTURE;STREAM+YOUTUBE+IN+ASCII;ZERO+LATENCY+BLOCK+MODE;THE+ULTIMATE+CLI+EXPERIENCE" alt="Typing SVG" />
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" />
-  <img src="https://img.shields.io/github/stars/idusha-manaka/TubeASCII?style=for-the-badge&color=gold&logo=github" />
-  <img src="https://komarev.com/ghpvc/?username=idusha-manaka-tubeascii&color=blueviolet&style=for-the-badge&label=PROJECT+VIEWS" />
+  <a href="https://github.com/idusha-manaka/TubeASCII/stargazers"><img src="https://img.shields.io/github/stars/idusha-manaka/TubeASCII?style=for-the-badge&color=FFD700&logo=github&logoColor=black" /></a>
+  <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.8%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" /></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-4CAF50?style=for-the-badge" /></a>
+  <img src="https://komarev.com/ghpvc/?username=idusha-manaka-tubeascii&color=6E56AF&style=for-the-badge&label=VIEWS" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Platform-Windows-0078D4?style=flat-square&logo=windows&logoColor=white" />
+  <img src="https://img.shields.io/badge/Platform-Linux-FCC624?style=flat-square&logo=linux&logoColor=black" />
+  <img src="https://img.shields.io/badge/Status-Stable-success?style=flat-square" />
 </p>
 
 ---
 
-### 🌐 **Stream Anything. Anywhere. In ASCII.**
-*Breaking the boundaries between the command line and high-definition video.*
+<p align="center">
+  <b>Transform your terminal into a high-definition ASCII cinema.</b><br>
+  <i>No browsers. No bloat. Just pure, unadulterated command-line streaming.</i>
+</p>
 
-**[✨ Features](#-key-features)** • **[🚀 Setup](#-quick-setup)** • **[🎮 Controls](#-battle-stations)** • **[🛠️ Architecture](#-how-it-works)**
+<p align="center">
+  <a href="#-key-features"><b>Features</b></a> • 
+  <a href="#-quick-setup"><b>Setup</b></a> • 
+  <a href="#-battle-stations"><b>Controls</b></a> • 
+  <a href="#-how-it-works"><b>Architecture</b></a>
+</p>
 
 ---
 
-## ⚡ Visual Pipeline
+## ⚡ System Architecture
 
 ```mermaid
-graph LR
-    A[YouTube URL] --> B[yt-dlp Engine]
-    B --> C[OpenCV Processor]
-    C --> D{Render Mode}
-    D -->|Block| E[Half-Block Engine]
-    D -->|ASCII| F[Character Mapping]
-    E --> G[Terminal Output]
-    F --> G
-    B --> H[FFmpeg Audio]
-    H --> I[Synced Playback]
+graph TD
+    User([User]) -->|Input URL| Main[Main Engine]
+    Main -->|Extract| YTDL[yt-dlp Extractor]
+    YTDL -->|Stream URL| CV2[OpenCV Processor]
+    CV2 -->|Frame Data| Mode{Render Mode}
+    Mode -->|High Precision| Block[Block Mode Engine]
+    Mode -->|Retro| ASCII[ASCII Art Engine]
+    Block -->|Display| Term[Terminal Output]
+    ASCII -->|Display| Term
+    Main -->|Audio Stream| FF[FFmpeg / ffplay]
+    FF -->|Synced Sound| Term
+    
+    style User fill:#00FFD1,stroke:#000,stroke-width:2px
+    style Main fill:#3776AB,stroke:#fff,stroke-width:1px,color:#fff
+    style Mode fill:#FFD700,stroke:#000,stroke-width:2px
+    style Term fill:#000,stroke:#00FFD1,stroke-width:3px,color:#00FFD1
 ```
 
 ---
 
-## 💎 Key Features
+## 💎 Elite Features
 
-| 🎨 **Rendering Engine** | 🚀 **Performance** | 🔊 **Audio & Sync** |
-| :--- | :--- | :--- |
-| **Block Mode (`▀`)**<br>Ultra-accurate color reproduction using Unicode half-blocks. | **Real-time Streaming**<br>Powered by `yt-dlp` for lag-free direct playback. | **Surround Feel**<br>Synced background audio via `ffplay` integration. |
-| **ASCII Detailed**<br>High-density character mapping for retro vibes. | **Dynamic Scaling**<br>Intelligent frame resizing to fit any terminal width. | **Manual Offset**<br>Fine-tune audio/video sync on the fly with `[` and `]`. |
+> [!TIP]
+> **Block Mode (`▀`)** isn't just text—it's a mathematical trick that doubles your terminal's vertical resolution to give you near-video quality colors.
+
+- 🚀 **Hyper-Stream**: Powered by `yt-dlp` for direct-to-buffer playback.
+- 🎨 **Chroma Engine**: Intelligent color mapping for 256-color and TrueColor terminals.
+- 🔊 **Sonic Sync**: Precise A/V synchronization with manual micro-adjustments.
+- 📐 **Auto-Responsive**: Frames automatically scale to your terminal size.
+- ⌨️ **Live Interactivity**: Adjust speed, pause, and seek without stopping the engine.
 
 ---
 
 ## 🚀 Quick Setup
 
-### 📦 Installation
+### 1. Clone & Initialize
 ```bash
-# Clone the repository
 git clone https://github.com/idusha-manaka/TubeASCII.git
 cd TubeASCII
+```
 
-# Install dependencies
+### 2. Equip Dependencies
+```bash
 pip install -r requirements.txt
 ```
 
-### 🎧 The Pilot (FFmpeg)
-Ensure `ffmpeg.exe` and `ffplay.exe` are in the folder or your system `PATH`. This is the heartbeat of your audio experience.
+### 3. The Core (FFmpeg)
+Download `ffmpeg.exe` and `ffplay.exe` from the [official builds](https://github.com/BtbN/FFmpeg-Builds/releases) and place them in the project folder.
 
-### 🎬 Start Streaming
+### 4. Ignition
 ```bash
 python main.py
 ```
@@ -70,48 +94,42 @@ python main.py
 
 ## 🎮 Battle Stations: Controls
 
-| Command | Hotkey | Effect |
-| :--- | :---: | :--- |
-| **Play / Pause** | <kbd>Space</kbd> | Freeze time or resume the flow |
-| **Turbo Mode** | <kbd>→</kbd> | Increase playback speed (+0.25x) |
-| **Slow Motion** | <kbd>←</kbd> | Decrease playback speed (-0.25x) |
-| **Sync Adjust** | <kbd>[</kbd> <kbd>]</kbd> | Perfect your A/V alignment (±0.1s) |
-| **Abort Mission** | <kbd>Q</kbd> | Terminate player and return to terminal |
+| Command | Action | Key |
+| :--- | :--- | :---: |
+| **Play/Pause** | Toggle stream state | <kbd>Space</kbd> |
+| **Overdrive** | Increase speed (+0.25x) | <kbd>→</kbd> |
+| **Downshift** | Decrease speed (-0.25x) | <kbd>←</kbd> |
+| **Sync Shift** | Adjust Audio/Video delay | <kbd>[</kbd> <kbd>]</kbd> |
+| **Eject** | Safe shutdown | <kbd>Q</kbd> |
 
 ---
 
-## 🛠️ Tech Stack
-
-<p align="center">
-  <img src="https://img.shields.io/badge/yt--dlp-FFD117?style=for-the-badge&logo=youtube&logoColor=black" />
-  <img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white" />
-  <img src="https://img.shields.io/badge/FFmpeg-007800?style=for-the-badge&logo=ffmpeg&logoColor=white" />
-  <img src="https://img.shields.io/badge/Colorama-3E4756?style=for-the-badge&logo=terminal&logoColor=white" />
-</p>
-
----
-
-## 📈 Project Status
-
-<p align="center">
-  <img src="https://img.shields.io/github/commit-activity/m/idusha-manaka/TubeASCII?style=flat-square&color=blue" />
-  <img src="https://img.shields.io/github/last-commit/idusha-manaka/TubeASCII?style=flat-square&color=orange" />
-  <img src="https://img.shields.io/github/issues/idusha-manaka/TubeASCII?style=flat-square&color=red" />
-</p>
+## 🛠️ The Arsenal
+| Component | Tech | Purpose |
+| :--- | :--- | :--- |
+| **Extraction** | `yt-dlp` | Live stream URL scraping |
+| **Vision** | `OpenCV` | Real-time frame decoding |
+| **Artistry** | `Custom Half-Block Engine` | High-fidelity rendering |
+| **Audio** | `FFmpeg / ffplay` | Multi-threaded sound sync |
 
 ---
 
 <div align="center">
 
-### 🌟 Show Your Support
-Give this project a star if it made your terminal feel like a cyberpunk workspace!
+### 🌟 Legend Status
+If you find this project cool, leave a Star. It fuels the development of more terminal magic!
 
-[![I LOVE THIS](https://img.shields.io/github/stars/idusha-manaka/TubeASCII?style=for-the-badge&color=FFD700&label=STARS)](https://github.com/idusha-manaka/TubeASCII/stargazers)
+<a href="https://github.com/idusha-manaka/TubeASCII/stargazers">
+  <img src="https://img.shields.io/github/stars/idusha-manaka/TubeASCII?style=for-the-badge&color=gold&label=BECOME+A+LEGEND" alt="Legend" />
+</a>
+
+<br><br>
+
+**Engineered with 💎 by [Idusha Manaka](https://github.com/idusha-manaka)**
+
+[![Follow](https://img.shields.io/github/followers/idusha-manaka?label=Follow%20the%20Journey&style=social)](https://github.com/idusha-manaka)
 
 <br>
-
-**Crafted with 💖 by [Idusha Manaka](https://github.com/idusha-manaka)**
-
-[![Follow](https://img.shields.io/github/followers/idusha-manaka?label=Follow%20Me&style=social)](https://github.com/idusha-manaka)
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer" width="100%"/>
 
 </div>
